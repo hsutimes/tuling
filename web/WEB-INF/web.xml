@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd"
+           version="3.1">
+
+    <servlet>
+        <servlet-name>ChatServers</servlet-name>
+        <servlet-class>com.tuling.chat.api.ChatServers</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChatServers</servlet-name>
+        <url-pattern>/api/1/web/chat</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>FilterServer</filter-name>
+        <filter-class>com.tuling.chat.api.FilterServer</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>FilterServer</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>
