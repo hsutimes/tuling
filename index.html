@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>智能机器人</title>
+    <link rel="stylesheet" type="text/css" href="css/tulin.css"/>
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div id="top">人工智能机器人</div>
+<div id="box">
+    <!-- head start -->
+    <div class="b-head">
+        <img class="h-img" alt="" src="img/logo.png" width=80; height=60;/>
+        <span class="h_span">人工智能机器人</span>
+    </div>
+    <!-- end head -->
+
+    <!-- body start -->
+    <div class="b-body">
+        <div class="rotWord">
+            <span></span>
+            <p>
+                嗨，最近想我没有？
+            </p>
+        </div>
+        <div class="rotWord">
+            <span></span>
+            <p>
+                有点想你呦！
+            </p>
+        </div>
+
+    </div>
+    <!-- end body -->
+
+    <!-- footer start -->
+    <div class="b-footer">
+        <input type="text" name="text" id="f-left" autocomplete="off"/>
+        <div id="btn">发送</div>
+    </div>
+    <!-- end footer -->
+</div>
+<div id="footer">
+    <p>Copyright © 2017-2020 Times All Right Reserved</p>
+    <p>©2017 Times 湘ICP备17011426号</p>
+</div>
+<script type="text/javascript">
+    var text = $("#f-left");
+    text.focus();
+    var id = "";
+    setUserId();
+
+    function action() {
+        if (text.val() == null || text.val() === "") {
+            text.focus();
+            return;
+        }
+        $(".b-body").append("<div class='mWord'><span></span><p>" + text.val() + "</p></div>");
+        $(".b-body").scrollTop(10000000);
+        $.ajax({
+            type: "post",
+            url: "http://www.tuling123.com/openapi/api",
+            dataType: "json",
+            data: {
+                "key": "e5e1946deae848259415a7d0b7a69ff2",
+                "info": text.val(),
+                "userid": id
+            },
+            success: function (data) {
+                if (data.code) {
+                    var result = data;
+                    var text = result.text;
+                    $(".b-body").append("<div class='rotWord'><span></span> <p>" + text + "</p></div>");
+                    $(".b-body").scrollTop(10000000);
+                    text = text.replace(/\s+/g, ",");
+
+                    $("audio").remove();
+                    var url = 'http://fanyi.baidu.com//gettts?lan=zh&text=' + text + '&spd=6&source=web';
+                    var obj = $("<audio src=" + url + " autoplay></audio>");
+                    $("body").append(obj);
+                    if (result.url) {
+                        $(".b-body").append("<div class='rotWord'><span></span><p><a id='urlInfo' target='blank' href=" + result.url + ">点击查看详情！</a></p></div>");
+                        $(".b-body").scrollTop(10000000);
+                    }
+                } else if (code === 1) {
+                    alert(result.msg);
+                } else {
+                    alert("未知错误")
+                }
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+        text.val("");
+        text.focus();
+    }
+
+    function setUserId() {
+        for (var i = 0; i < 32; i++) {
+            id += parseInt(Math.random() * 10) + "";
+        }
+    }
+
+    $("#btn").click(function () {
+        action();
+    });
+    $(document).keydown(function (event) {
+        if (event.keyCode === 13) {
+            action();
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+@CHARSET "UTF-8";
+/*public start*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 12px;
+    font-family: "微软雅黑";
+    /*background: url(../img/bg.jpg) no-repeat;*/
+    background: -webkit-linear-gradient(-45deg, #33ff00, #ce86e0, #00a4ff); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(-45deg, #33ff00, #ce86e0, #00a4ff); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(-45deg, #33ff00, #ce86e0, #00a4ff); /* Firefox 3.6 - 15 */
+    background: linear-gradient(-45deg, #33ff00, #ce86e0, #00a4ff); /* 标准的语法 */
+    width: 100%;
+    height: 1200px;
+    overflow: hidden;
+    background-size: cover;
+}
+
+#top {
+    width: 100%;
+    height: 60px;
+    background: rgba(15, 25, 50, 0.3);
+    color: #fff;
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;
+}
+
+/* end public */
+
+#box {
+    width: 800px;
+    height: 600px;
+    background: rgba(255, 255, 255, .5);
+    margin: 20px auto 0;
+}
+
+/* head start */
+
+.b-head {
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(-45deg, #00e7ff, #86e09e, #00a4ff);
+}
+
+.h-img {
+    margin: 0 20px;
+    float: left;
+    user-select: none;
+}
+
+.h_span {
+    color: #fff;
+    font-size: 18px;
+    line-height: 60px;
+    float: left;
+    user-select: none;
+    cursor: default;
+}
+
+/* end head */
+/* body start */
+
+.b-body {
+    width: 100%;
+    height: 420px;
+    overflow: auto;
+    margin: 20px 0;
+}
+
+.rotWord, .mWord {
+    width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.rotWord span {
+    background: url(../img/rot.png);
+    height: 40px;
+    width: 40px;
+    margin-left: 20px;
+    float: left;
+}
+
+.rotWord p {
+    word-break: break-all;
+    top: 4px;
+    float: left;
+    color: #fff;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 10px;
+    line-height: 24px;
+    background: rgba(0, 0, 255, .5);
+    border-radius: 6px;
+    max-width: 220px;
+}
+
+.mWord span {
+    background: url(../img/my.png);
+    height: 40px;
+    width: 40px;
+    float: right;
+    margin-right: 20px;
+}
+
+.mWord p {
+    word-break: break-all;
+    /*自动换行*/
+    top: 2px;
+    float: right;
+    color: #fff;
+    font-size: 14px;
+    margin-right: 10px;
+    padding: 10px;
+    line-height: 24px;
+    background: #19b955;
+    border-radius: 6px;
+    max-width: 220px;
+}
+
+#urlInfo {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* end body */
+/* footer start */
+
+.b-footer {
+    width: 760px;
+    height: 60px;
+    margin: 0 20px;
+    font-size: 16px;
+    color: #666;
+}
+
+#f-left {
+    padding-left: 20px;
+    outline: none;
+    overflow: hidden;
+    width: 620px;
+    height: 60px;
+    float: left;
+    background: rgba(0, 0, 0, .1);
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+}
+
+#btn {
+    width: 100px;
+    height: 60px;
+    background: #666666;
+    float: right;
+    cursor: pointer;
+    text-align: center;
+    line-height: 60px;
+    font-size: 18px;
+    color: #fff;
+    user-select: none;
+    border-radius: 10px;
+}
+
+/* end footer */
+
+#footer {
+    width: 100%;
+    height: 60px;
+    color: #fff;
+    margin-top: 320px;
+    position: absolute;
+    bottom: 0;
+    user-select: none;
+    cursor: default;
+}
+
+#footer p {
+    text-align: center;
+}
+
+.b-body::-webkit-scrollbar {
+    width: 4px;
+}
+
+.b-body::-moz-scrollbar {
+    width: 4px;
+}
+
+.b-body::-webkit-scrollbar-track {
+    background-color: #808080;
+    border-radius: 2em;
+}
+
+.b-body::-webkit-scrollbar-thumb {
+    background-color: #03a9f4;
+    border-radius: 2em;
+}
+
+.b-body::-moz-scrollbar-track {
+    background-color: #808080;
+    border-radius: 2em;
+}
+
+.b-body::-moz-scrollbar-thumb {
+    background-color: #03a9f4;
+    border-radius: 2em;
+}
